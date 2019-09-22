@@ -70,9 +70,9 @@ class quickAlignedPipe(bpy.types.Operator):
                 bpy.ops.transform.translate(value = (0,0,2))
                 bpy.ops.object.mode_set(mode='OBJECT')
 
-                DirectionVector = mathutils.Vector(worldNormal)
+                directionVector = mathutils.Vector(worldNormal)
                 bpy.context.object.location = worldPos
-                bpy.context.object.rotation_euler = DirectionVector.to_track_quat('Z','Y').to_euler()
+                bpy.context.object.rotation_euler = directionVector.to_track_quat('Z','Y').to_euler()
 
                 self.pipe = bpy.context.scene.objects[0]
                 self.pipe.select = True
